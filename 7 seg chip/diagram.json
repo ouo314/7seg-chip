@@ -14,7 +14,14 @@
     { "type": "wokwi-dip-switch-8", "id": "sw1", "top": 275.1, "left": 39.9, "attrs": {} },
     { "type": "wokwi-vcc", "id": "vcc1", "top": 58.36, "left": -57.6, "attrs": {} },
     { "type": "wokwi-gnd", "id": "gnd1", "top": 115.2, "left": -58.2, "attrs": {} },
-    { "type": "wokwi-7segment", "id": "sevseg2", "top": -33.42, "left": 216.28, "attrs": {} }
+    { "type": "wokwi-7segment", "id": "sevseg2", "top": -33.42, "left": 216.28, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 303.8,
+      "left": 153.6,
+      "attrs": { "color": "green", "bounce": "0" }
+    }
   ],
   "connections": [
     [ "chip1:VCC", "vcc1:VCC", "red", [ "h0" ] ],
@@ -52,7 +59,15 @@
     [ "sevseg2:G", "chip1:gl", "green", [ "v-37.56", "h-48", "v240" ] ],
     [ "sevseg2:F", "chip1:fl", "green", [ "v-18.36", "h-57.6", "v240" ] ],
     [ "sevseg2:A", "chip1:al", "green", [ "v-37.56", "h-240", "v-38.4" ] ],
-    [ "sevseg2:B", "chip1:bl", "green", [ "v-75.96", "h-259.2", "v316.8" ] ]
+    [ "sevseg2:B", "chip1:bl", "green", [ "v-75.96", "h-259.2", "v316.8" ] ],
+    [ "chip1:sw", "sw1:4b", "green", [ "h0" ] ],
+    [ "chip1:show", "btn1:1.r", "green", [ "h0" ] ],
+    [
+      "btn1:2.r",
+      "vcc1:VCC",
+      "green",
+      [ "h0.2", "v57.8", "h-211.2", "v-67.2", "h-86.4", "v-240" ]
+    ]
   ],
   "dependencies": {}
 }
