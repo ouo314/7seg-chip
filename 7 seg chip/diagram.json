@@ -8,7 +8,7 @@
       "id": "sevseg1",
       "top": -33.42,
       "left": 33.88,
-      "attrs": { "common": "anode" }
+      "attrs": { "common": "anode", "digits": "1", "colon": "" }
     },
     { "type": "chip-7segchip", "id": "chip1", "top": 97.02, "left": 33.6, "attrs": {} },
     { "type": "wokwi-dip-switch-8", "id": "sw1", "top": 275.1, "left": 39.9, "attrs": {} },
@@ -43,12 +43,6 @@
     [ "sw1:4a", "sw1:3a", "green", [ "v0" ] ],
     [ "sw1:3a", "sw1:2a", "green", [ "v0" ] ],
     [ "sw1:2a", "sw1:1a", "green", [ "v0" ] ],
-    [ "sw1:8b", "chip1:a0", "green", [ "h86.4", "v-124.5" ] ],
-    [ "sw1:7b", "chip1:a1", "green", [ "v-9.3", "h86.4", "v-124.8" ] ],
-    [ "sw1:6b", "chip1:a2", "green", [ "v-18.9", "h86.4", "v-124.8" ] ],
-    [ "sw1:3b", "chip1:b0", "green", [ "v-38.1", "h163.2", "v-9.6" ] ],
-    [ "sw1:2b", "chip1:b1", "green", [ "v-47.7", "h182.4", "v-115.2", "h-115.2" ] ],
-    [ "sw1:1b", "chip1:b2", "green", [ "v-57.3", "h201.6", "v-115.2" ] ],
     [ "sw1:1a", "vcc1:VCC", "green", [ "v0", "h-124.8", "v-240" ] ],
     [ "sevseg2:COM.2", "vcc1:VCC", "green", [ "h9.6", "v-27.96", "h-288" ] ],
     [ "sevseg2:COM.1", "vcc1:VCC", "green", [ "h0", "v19.2", "h-288" ] ],
@@ -67,7 +61,13 @@
       "vcc1:VCC",
       "green",
       [ "h0.2", "v57.8", "h-211.2", "v-67.2", "h-86.4", "v-240" ]
-    ]
+    ],
+    [ "chip1:b2", "sw1:6b", "green", [ "h0" ] ],
+    [ "chip1:b1", "sw1:7b", "green", [ "h0" ] ],
+    [ "chip1:b0", "sw1:8b", "green", [ "h0" ] ],
+    [ "chip1:a2", "sw1:1b", "green", [ "h0" ] ],
+    [ "chip1:a1", "sw1:2b", "green", [ "h0" ] ],
+    [ "chip1:a0", "sw1:3b", "green", [ "h0" ] ]
   ],
   "dependencies": {}
 }

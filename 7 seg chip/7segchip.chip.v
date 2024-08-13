@@ -7,7 +7,7 @@
 
 module decoder(
   input wire [3:0] result,
-  output reg [6:0] seg
+  output wire [6:0] seg // if set seg as reg sometimes it won't work
 );
   always @(*)
   begin
@@ -37,7 +37,7 @@ module wokwi (
   wire [6:0] result;
   wire [3:0] tens, ones;
   wire [6:0] dh_,dl_; // can't be dh,dl maybe these names are special?
-/*
+
   always@(*)
   begin
     if (show == 1'b0) begin
@@ -53,21 +53,19 @@ module wokwi (
       ones = result % 10;
     end
   end
-*/
 
-/*
   decoder decoder_tens(
     .result(tens),
-    .seg(dh)
+    .seg(dh_)
   );
 
   decoder decoder_ones(
     .result(ones),
-    .seg(dl)
+    .seg(dl_)
   );
-*/
-  assign {a,b,c,d,e,f,g} = dh;
-  assign {al,bl,cl,dl,el,fl,gl} = dl;
+
+  assign {a,b,c,d,e,f,g} = dh_;
+  assign {al,bl,cl,dl,el,fl,gl} = dl_;
   assign dp = 0;
   assign dpl = 0;
 
