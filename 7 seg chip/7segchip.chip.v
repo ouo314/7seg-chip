@@ -4,32 +4,59 @@
 // SPDX-License-Identifier: MIT
 // Copyright 2023 chen ken
 
-// Input / output names must match the pins defined in the chip's JSON file:
+
+module decoder(
+  input wire [3:0] sum,
+  output reg [6:0] seg
+);
+  always @(*)
+  begin
+    case(sum)
+      4'd0: seg = 7'h01; 
+      4'd1: seg = 7'h4F;  
+      4'd2: seg = 7'h12;  
+      4'd3: seg = 7'h06;  
+      4'd4: seg = 7'h4C;  
+      4'd5: seg = 7'h24; 
+      4'd6: seg = 7'h60;  
+      4'd7: seg = 7'h0F;  
+      4'd8: seg = 7'h00;  
+      4'd9: seg = 7'h0C; 
+      default: seg = 7'b1111111; 
+    endcase
+  end
+endmodule
+
 module wokwi (
-  input wire a0,a1,a2,b0,b1,b2,
-  output wire a,b,c,d,e,f,g,dp
+  input wire a0, a1, a2, b0, b1, b2,
+  output wire a, b, c, d, e, f, g, dp,
+  output wire al, bl, cl, dl, el, fl, gl, dpl
+);
+
+  wire [5:0] sum;
+  wire [3:0] tens, ones;
+  wire [6:0] dh, dl;
+
+  assign sum = {a2,a1,a0} + {b2,b1,b0};
+
+
+  assign tens = sum / 10;
+  assign ones = sum % 10;
+
+
+  decoder decoder_tens(
+    .sum(tens),
+    .seg(dh)
   );
 
-  reg [6:0] dout;
-  reg [2:0] sum;
+  decoder decoder_ones(
+    .sum(ones),
+    .seg(dl)
+  );
 
-
-  always@(*)
-  begin
-    assign sum = {a2,a1,a0} + {b2,b1,b0};
-    case(sum)
-      3'b000: dout = 7'h01;
-      3'b001: dout = 7'h4F;
-      3'b010: dout = 7'h12;
-      3'b011: dout = 7'h06;
-      3'b100: dout = 7'h4C;
-      3'b101: dout = 7'h24;
-      3'b110: dout = 7'h60;
-      3'b111: dout = 7'h0F;
-    endcase
-    assign {a,b,c,d,e,f,g} = dout;
-    assign dp =0;
-  end
-
+  assign {a,b,c,d,e,f,g} = dh;
+  assign {al,bl,cl,dl,el,fl,gl} = dl;
+  assign dp = 0;
+  assign dpl = 0;
 
 endmodule

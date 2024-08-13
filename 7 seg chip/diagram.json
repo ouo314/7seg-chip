@@ -13,7 +13,8 @@
     { "type": "chip-7segchip", "id": "chip1", "top": 97.02, "left": 33.6, "attrs": {} },
     { "type": "wokwi-dip-switch-8", "id": "sw1", "top": 275.1, "left": 39.9, "attrs": {} },
     { "type": "wokwi-vcc", "id": "vcc1", "top": 58.36, "left": -57.6, "attrs": {} },
-    { "type": "wokwi-gnd", "id": "gnd1", "top": 115.2, "left": -58.2, "attrs": {} }
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 115.2, "left": -58.2, "attrs": {} },
+    { "type": "wokwi-7segment", "id": "sevseg2", "top": -33.42, "left": 216.28, "attrs": {} }
   ],
   "connections": [
     [ "chip1:VCC", "vcc1:VCC", "red", [ "h0" ] ],
@@ -35,13 +36,23 @@
     [ "sw1:4a", "sw1:3a", "green", [ "v0" ] ],
     [ "sw1:3a", "sw1:2a", "green", [ "v0" ] ],
     [ "sw1:2a", "sw1:1a", "green", [ "v0" ] ],
-    [ "sw1:1a", "gnd1:GND", "green", [ "v0", "h-124.8", "v-144" ] ],
     [ "sw1:8b", "chip1:a0", "green", [ "h86.4", "v-124.5" ] ],
     [ "sw1:7b", "chip1:a1", "green", [ "v-9.3", "h86.4", "v-124.8" ] ],
     [ "sw1:6b", "chip1:a2", "green", [ "v-18.9", "h86.4", "v-124.8" ] ],
     [ "sw1:3b", "chip1:b0", "green", [ "v-38.1", "h163.2", "v-9.6" ] ],
     [ "sw1:2b", "chip1:b1", "green", [ "v-47.7", "h182.4", "v-115.2", "h-115.2" ] ],
-    [ "sw1:1b", "chip1:b2", "green", [ "v-57.3", "h201.6", "v-115.2" ] ]
+    [ "sw1:1b", "chip1:b2", "green", [ "v-57.3", "h201.6", "v-115.2" ] ],
+    [ "sw1:1a", "vcc1:VCC", "green", [ "v0", "h-124.8", "v-240" ] ],
+    [ "sevseg2:COM.2", "vcc1:VCC", "green", [ "h9.6", "v-27.96", "h-288" ] ],
+    [ "sevseg2:COM.1", "vcc1:VCC", "green", [ "h0", "v19.2", "h-288" ] ],
+    [ "sevseg2:E", "chip1:el", "green", [ "v0" ] ],
+    [ "sevseg2:D", "chip1:dl", "green", [ "v0" ] ],
+    [ "sevseg2:C", "chip1:cl", "green", [ "v0" ] ],
+    [ "sevseg2:DP", "chip1:dpl", "green", [ "v0" ] ],
+    [ "sevseg2:G", "chip1:gl", "green", [ "v-37.56", "h-48", "v240" ] ],
+    [ "sevseg2:F", "chip1:fl", "green", [ "v-18.36", "h-57.6", "v240" ] ],
+    [ "sevseg2:A", "chip1:al", "green", [ "v-37.56", "h-240", "v-38.4" ] ],
+    [ "sevseg2:B", "chip1:bl", "green", [ "v-75.96", "h-259.2", "v316.8" ] ]
   ],
   "dependencies": {}
 }
