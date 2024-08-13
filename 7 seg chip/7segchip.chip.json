@@ -1,0 +1,23 @@
+{
+  "name": "7segchip",
+  "author": "chen ken",
+  "pins": [
+    "VCC",
+    "GND",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "dp",
+    "a0",
+    "a1",
+    "a2",
+    "b0",
+    "b1",
+    "b2"
+  ],
+  "controls": []
+}
