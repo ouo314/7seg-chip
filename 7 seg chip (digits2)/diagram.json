@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "author": "chen ken",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg1",
+      "top": -32.58,
+      "left": 29.36,
+      "attrs": { "common": "anode", "digits": "2", "colon": "" }
+    },
+    { "type": "chip-7segchip", "id": "chip1", "top": 97.02, "left": 33.6, "attrs": {} },
+    { "type": "wokwi-dip-switch-8", "id": "sw1", "top": 275.1, "left": 39.9, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 58.36, "left": -57.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 115.2, "left": -58.2, "attrs": {} },
+    { "type": "wokwi-clock-generator", "id": "clk1", "top": 48, "left": 96, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 303.8,
+      "left": 153.6,
+      "attrs": { "color": "green", "bounce": "0" }
+    }
+  ],
+  "connections": [
+    [ "chip1:VCC", "vcc1:VCC", "red", [ "h0" ] ],
+    [ "chip1:GND", "gnd1:GND", "black", [ "h0" ] ],
+    [ "sevseg1:COM.2", "vcc1:VCC", "green", [ "h0", "v-27.96", "h-86.4", "v144" ] ],
+    [ "sevseg1:COM.1", "vcc1:VCC", "green", [ "h0", "v38.4" ] ],
+    [ "sevseg1:A", "chip1:a", "green", [ "v-18.36", "h-86.4", "v172.8" ] ],
+    [ "sevseg1:B", "chip1:b", "green", [ "v-37.56", "h-86.4", "v201.6" ] ],
+    [ "sevseg1:C", "chip1:c", "green", [ "v38.4", "h-67.2", "v67.2" ] ],
+    [ "sevseg1:DP", "chip1:dp", "green", [ "v28.8", "h-42.92", "v124.8" ] ],
+    [ "sevseg1:G", "chip1:g", "green", [ "h72.28", "v212.04", "h-134.4" ] ],
+    [ "sevseg1:F", "chip1:f", "green", [ "h-86.4", "v202.44" ] ],
+    [ "sevseg1:E", "chip1:e", "green", [ "h-19.2", "v124.8" ] ],
+    [ "sevseg1:D", "chip1:d", "green", [ "h-38.4", "v115.2" ] ],
+    [ "sw1:8a", "sw1:7a", "green", [ "v0" ] ],
+    [ "sw1:7a", "sw1:6a", "green", [ "v0" ] ],
+    [ "sw1:6a", "sw1:5a", "green", [ "v0" ] ],
+    [ "sw1:5a", "sw1:4a", "green", [ "v0" ] ],
+    [ "sw1:4a", "sw1:3a", "green", [ "v0" ] ],
+    [ "sw1:3a", "sw1:2a", "green", [ "v0" ] ],
+    [ "sw1:2a", "sw1:1a", "green", [ "v0" ] ],
+    [ "sw1:1a", "vcc1:VCC", "green", [ "v0", "h-124.8", "v-240" ] ],
+    [ "chip1:sw", "sw1:4b", "green", [ "h0" ] ],
+    [ "chip1:show", "btn1:1.r", "green", [ "h0" ] ],
+    [
+      "btn1:2.r",
+      "vcc1:VCC",
+      "green",
+      [ "h0.2", "v57.8", "h-211.2", "v-67.2", "h-86.4", "v-240" ]
+    ],
+    [ "chip1:b2", "sw1:6b", "green", [ "h0" ] ],
+    [ "chip1:b1", "sw1:7b", "green", [ "h0" ] ],
+    [ "chip1:b0", "sw1:8b", "green", [ "h0" ] ],
+    [ "chip1:a2", "sw1:1b", "green", [ "h0" ] ],
+    [ "chip1:a1", "sw1:2b", "green", [ "h0" ] ],
+    [ "chip1:a0", "sw1:3b", "green", [ "h0" ] ],
+    [ "sevseg1:DIG2", "chip1:dig2", "green", [ "v0" ] ],
+    [ "sevseg1:DIG1", "chip1:dig1", "green", [ "v0" ] ],
+    [ "clk1:CLK", "chip1:clk", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
